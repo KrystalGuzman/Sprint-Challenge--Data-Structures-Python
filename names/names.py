@@ -19,6 +19,9 @@ duplicates = []  # Return the list of duplicates in this data structure
 #     for name_2 in names_2:
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
+
+# use Binary Search Tree to go through and search duplicates using contains
+# Runtime ~.25, Runtime complexity O(log(n))
 a = BSTNode("")
 bst = BSTNode(names_1[0])
 
