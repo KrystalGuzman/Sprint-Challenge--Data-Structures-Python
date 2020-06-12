@@ -37,28 +37,21 @@ class LinkedList:
             current = current.get_next()
 
         return False
-    
-    def __str__(self):
 
-        current_node = self.head
-
-        string_representation = str(current_node.get_value())
-
-        while current_node.next_node:
-
-            current_node = current_node.next_node
-            string_representation += " -> " + str(current_node.get_value())
-
-        return string_representation
-
-
-    def reverse_list(self, node, prev):
-        #if node is not none
-        if node != None:
+    def reverse_list(self, node, prev=None):
+        # if empty
+        if node is None and prev is None:
+            return
+        else:
+            #hits at end of list
+            if node.next_node is None:
+                self.head = node
+                node.next_node = prev
+                return
+            
+            # defines current before calling reverse_list 
+            # since overwritten in the next line
             current = node.next_node
             node.next_node = prev
-            #recursion
-            return self.reverse_list(current, node)
-        else:
-            self.head = prev
 
+            self.reverse_list(current, node)
