@@ -37,6 +37,26 @@ class LinkedList:
             current = current.get_next()
 
         return False
+    
+    def __str__(self):
 
+        current_node = self.head
+
+        string_representation = str(current_node.get_value())
+
+        while current_node.next_node:
+
+            current_node = current_node.next_node
+            string_representation += " -> " + str(current_node.get_value())
+
+        return string_representation
+        
     def reverse_list(self, node, prev):
-        pass
+        #if node is not none
+        if node != None:
+            #current is saved to next node
+            current = node.next_node
+            node.next_node = prev
+            return self.reverse_list(current, node)
+        else:
+            self.head = prev
