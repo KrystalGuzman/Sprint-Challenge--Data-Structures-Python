@@ -50,13 +50,15 @@ class LinkedList:
             string_representation += " -> " + str(current_node.get_value())
 
         return string_representation
-        
+
+
     def reverse_list(self, node, prev):
         #if node is not none
         if node != None:
-            #current is saved to next node
             current = node.next_node
             node.next_node = prev
+            #recursion
             return self.reverse_list(current, node)
         else:
             self.head = prev
+
